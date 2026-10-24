@@ -80,8 +80,64 @@ function initSocialLinks() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  initContract();
-  initNav();
-  initSocialLinks();
-});
+function initMotion() {
+  const header = document.querySelector(".site-header");
+  const bar = document.querySelector(".scroll-progress");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > 16);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+  };
+
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const groups = [
+    ".proof-bar p",
+    ".section-head",
+    ".section-lede",
+    ".banner-frame",
+    ".meme-card",
+    ".x-card",
+    ".about-visual",
+    ".about-copy",
+    ".ca-box",
+    ".token-board article",
+    ".steps li",
+    ".buy-cta",
+  ];
+
+  document.querySelectorAll(groups.join(",")).forEach((el) => {
+    el.classList.add("reveal");
+  });
+
+  document.querySelectorAll(".meme-wall .meme-card, .token-board article, .steps li, .proof-bar p").forEach((el) => {
+    const siblings = [...el.parentElement.children];
+    el.style.setProperty("--d", `${siblings.indexOf(el) * 80}ms`);
+  });
+
+  if (reduce || !("IntersectionObserver" in window)) {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+}
+
+initContract();
+initNav();
+initSocialLinks();
+initMotion();

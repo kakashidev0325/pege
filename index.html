@@ -15,9 +15,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <nav class="nav">
@@ -48,8 +50,8 @@
       <img class="hero-image" src="banner.png" alt="Pepe Doge collage with gold coins, a crown, and a rocket" />
       <div class="hero-copy">
         <p class="seal">PD</p>
-        <p class="hero-kicker">Solana meme token</p>
-        <h1>PEPE<br /><span>DOGE</span></h1>
+        <p class="hero-kicker"><i class="pulse" aria-hidden="true"></i>Solana meme token</p>
+        <h1><span class="word-pepe">PEPE</span><br /><span class="word-doge">DOGE</span></h1>
         <p class="hero-ticker">$PEGE</p>
         <p class="hero-bio">Pepe Doge is the green frog with a doge grin — thumbs up, gold coins, and a face built for the timeline. $PEGE is a Solana meme token made to be spotted, shared, and passed around the community.</p>
         <ul class="stat-row">
@@ -70,47 +72,53 @@
         <span>PEPE DOGE</span><span>$PEGE</span><span>GREEN</span><span>GOLD</span><span>SOLANA</span><span>GRIN</span><span>COMMUNITY</span>
       </div>
     </div>
+    <div class="marquee marquee-gold" aria-hidden="true">
+      <div class="marquee-track marquee-track-rev">
+        <span>THUMBS UP</span><span>MUCH WOW</span><span>LFG</span><span>CROWNED</span><span>FEELS GOOD</span><span>LOVE</span><span>HMM</span>
+        <span>THUMBS UP</span><span>MUCH WOW</span><span>LFG</span><span>CROWNED</span><span>FEELS GOOD</span><span>LOVE</span><span>HMM</span>
+      </div>
+    </div>
 
     <div class="proof-bar" aria-label="Brand pillars">
-      <p><strong>Frog</strong> green skin, doge face</p>
-      <p><strong>Grin</strong> made to be shared</p>
-      <p><strong>Solana</strong> meme token culture</p>
+      <p class="reveal"><strong>Frog</strong> green skin, doge face</p>
+      <p class="reveal"><strong>Grin</strong> made to be shared</p>
+      <p class="reveal"><strong>Solana</strong> meme token culture</p>
     </div>
 
     <section class="section" id="story">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head reveal">
           <p class="section-index">01</p>
           <div>
             <p class="section-label">The brand</p>
             <h2 class="section-title">Pepe Doge.<br />One grin.</h2>
-            <p class="section-lede tight">A frog you can spot at a glance, drawn for the speed of Solana.</p>
+            <p class="section-lede tight reveal">A frog you can spot at a glance, drawn for the speed of Solana.</p>
           </div>
         </header>
-        <figure class="banner-frame">
+        <figure class="banner-frame reveal">
           <img src="banner.png" alt="Pepe Doge in cool, crowned, and heart poses on a comic burst" />
         </figure>
         <div class="meme-wall" id="memes">
-          <figure class="meme-card tilt-a">
+          <figure class="meme-card reveal tilt-a">
             <img src="meme-feels.jpg" alt="Pepe Doge giving two thumbs up. Feels good." />
           </figure>
-          <figure class="meme-card tilt-b">
+          <figure class="meme-card reveal tilt-b">
             <img src="meme-wow.jpg" alt="Pepe Doge in pixel sunglasses. Much wow." />
           </figure>
-          <figure class="meme-card tilt-c">
+          <figure class="meme-card reveal tilt-c">
             <img src="meme-hmm.jpg" alt="Pepe Doge thinking, surrounded by question marks. Hmm." />
           </figure>
-          <figure class="meme-card tilt-d">
+          <figure class="meme-card reveal tilt-d">
             <img src="meme-king.jpg" alt="Pepe Doge in a gold crown and red cape. Crowned." />
           </figure>
-          <figure class="meme-card tilt-e">
+          <figure class="meme-card reveal tilt-e">
             <img src="meme-love.jpg" alt="Pepe Doge hugging a red heart. Love." />
           </figure>
-          <figure class="meme-card tilt-f">
+          <figure class="meme-card reveal tilt-f">
             <img src="meme-lfg.jpg" alt="Pepe Doge pointing up beside a rocket. LFG." />
           </figure>
         </div>
-        <article class="frame x-card">
+        <article class="frame x-card reveal">
           <div class="frame-meta">
             <span>Community</span>
             <a href="https://x.com/solpege_x" data-twitter target="_blank" rel="noopener noreferrer">Open</a>
@@ -133,10 +141,10 @@
 
     <section class="section about" id="about">
       <div class="about-bleed">
-        <div class="about-visual">
+        <div class="about-visual reveal">
           <img src="logo.png" alt="Pepe Doge standing in the city" class="about-face" />
         </div>
-        <div class="about-copy">
+        <div class="about-copy reveal">
           <p class="section-index">02</p>
           <p class="section-label">The icon</p>
           <h2 class="section-title">Meet Pepe Doge</h2>
@@ -158,14 +166,14 @@
 
     <section class="section" id="contract">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head reveal">
           <p class="section-index">03</p>
           <div>
             <p class="section-label">The seal</p>
             <h2 class="section-title">$PEGE CA</h2>
           </div>
         </header>
-        <div class="ca-box">
+        <div class="ca-box reveal">
           <span class="ca-kicker">Solana mint</span>
           <code id="ca-display" class="ca-address">TBA</code>
           <button id="copy-ca" class="btn btn-line" type="button" title="Copy address">Copy</button>
@@ -176,31 +184,31 @@
 
     <section class="section tokenomics" id="tokenomics">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head reveal">
           <p class="section-index">04</p>
           <div>
             <p class="section-label">The offering</p>
             <h2 class="section-title">Tokenomics</h2>
           </div>
         </header>
-        <p class="section-lede">Fair launch on pump.fun. No team bag. No tax. Just $PEGE.</p>
+        <p class="section-lede reveal">Fair launch on pump.fun. No team bag. No tax. Just $PEGE.</p>
         <div class="token-board">
-          <article>
+          <article class="reveal">
             <p class="token-value">100%</p>
             <h3>Community</h3>
             <p>Zero team allocation.</p>
           </article>
-          <article>
+          <article class="reveal">
             <p class="token-value">1B</p>
             <h3>Supply</h3>
             <p>1,000,000,000 $PEGE</p>
           </article>
-          <article>
+          <article class="reveal">
             <p class="token-value">0%</p>
             <h3>Tax</h3>
             <p>Buy and sell. Nothing taken.</p>
           </article>
-          <article>
+          <article class="reveal">
             <p class="token-value">LP</p>
             <h3>pump.fun</h3>
             <p>Bonding curve, then Solana LP.</p>
@@ -211,7 +219,7 @@
 
     <section class="section buy" id="buy">
       <div class="container">
-        <header class="section-head">
+        <header class="section-head reveal">
           <p class="section-index">05</p>
           <div>
             <p class="section-label">The move</p>
@@ -219,28 +227,28 @@
           </div>
         </header>
         <ol class="steps">
-          <li>
+          <li class="reveal">
             <span>01</span>
             <h3>Wallet</h3>
             <p>Install Phantom or any Solana wallet and fund it with SOL.</p>
           </li>
-          <li>
+          <li class="reveal">
             <span>02</span>
             <h3>pump.fun</h3>
             <p>Open the official $PEGE page and connect.</p>
           </li>
-          <li>
+          <li class="reveal">
             <span>03</span>
             <h3>Swap</h3>
             <p>Buy $PEGE. Match the CA on this site.</p>
           </li>
-          <li>
+          <li class="reveal">
             <span>04</span>
             <h3>Share</h3>
             <p>Post the grin. Join X and Telegram.</p>
           </li>
         </ol>
-        <div class="buy-cta">
+        <div class="buy-cta reveal">
           <a href="https://pump.fun" data-pumpfun target="_blank" rel="noopener noreferrer" class="btn btn-blood btn-lg">Buy on pump.fun</a>
           <a href="https://x.com/solpege_x" data-twitter target="_blank" rel="noopener noreferrer" class="btn btn-line btn-lg">X</a>
           <a href="https://t.me/solpege_tg" data-telegram target="_blank" rel="noopener noreferrer" class="btn btn-line btn-lg">Telegram</a>
